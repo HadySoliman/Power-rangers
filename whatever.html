@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+        html,
+        body {
+            height: 100%;
+            /*cursor: none;*/
+        }
+
+        .sora {
+            position: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="sora">
+        <img src="http://images.plan403.com/main.php?g2_view=core.DownloadItem&g2_itemId=1781&g2_serialNumber=1" alt="" width="100px" height="100px" />
+    </div>
+    <script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+    <script type="text/javascript">
+        var mouse_tracker = function(event) {
+            console.log(event.pageX, event.pageY, !!event.which)
+            if (event.which) {
+                $('.sora').css('top', event.pageY)
+                $('.sora').css('left', event.pageX)
+                $('body').css("cursor", "none")
+            } else {
+                $('body').css("cursor", "pointer")
+            }
+
+        }
+        $('body').on('mousemove', mouse_tracker)
+    </script>
+</body>
+
+</html>
